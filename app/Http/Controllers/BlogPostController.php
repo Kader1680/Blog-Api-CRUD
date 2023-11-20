@@ -24,7 +24,7 @@ class BlogPostController extends Controller
     ]);
 
     if ($isInserSucess) {
-        echo "true sucess";
+        echo "<a href='/blog'>go back to blog</a>";
     } else {
         echo "false sueces";
     }

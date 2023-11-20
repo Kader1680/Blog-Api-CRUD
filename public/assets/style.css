@@ -7,7 +7,6 @@ html body{
     background-color: rgb(230, 230, 230);
 
 }
-
 .navbar-brand
 {
     position: absolute;
@@ -19,4 +18,34 @@ html body{
 }
 nav{
     background-color: #a6194b;
+}
+.allblog{
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+
+}
+.allblog .blogs{
+    background-color: rgb(230, 230, 230);
+    padding: 05px 10px;
+    margin: 10px 0px;
+    border-radius: 5px;
+
+}
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.head div div{
+    background-color: #a6194b;
+    color: white;
+    padding: 5px  10px;
+    border-radius: 5px;
+}
+.blogs a h4{
+    color: dodgerblue;
+    font-weight: 600;
+}
+.blogs p{
+    font-style: italic;
 }
