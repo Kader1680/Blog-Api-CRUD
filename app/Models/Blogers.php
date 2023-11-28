@@ -4,15 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Post extends Model
+class Blogers extends Model
 {
     use HasFactory;
 
-    public function blogers() : BelongsTo{
-        return $this->BelongsTo(Blogers::class, "id");
+    public function blogers ():HasMany {
+        return $this->hasMany(Post::class, 'post_bloger');
     }
-
 }

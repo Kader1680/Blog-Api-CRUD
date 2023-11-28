@@ -2,6 +2,9 @@
 
 @section("content")
      <div>
-        Contact Page
+
+        @foreach ($post as $p)
+            {{ $p->title }}
+        @endforeach
      </div>
 @endsection

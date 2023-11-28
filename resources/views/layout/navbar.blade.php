@@ -17,9 +17,11 @@
            <li><a href="/">Turing</a></li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
+           <li><a href="/">Home</a></li>
            <li><a href="/about">About</a></li>
            <li><a href="/create">Create Blog</a></li>
-           <li><a href="/blog">Blog</a></li>
+           <li><a href="/blog">All Blog</a></li>
+           <li><a href="/writres">Blogers</a></li>
            <li><a href="/contact">Contact</a></li>
 
          </ul>
