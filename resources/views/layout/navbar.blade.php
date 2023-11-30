@@ -1,30 +1,38 @@
-<nav class="navbar navbar-inverse " role="navigation">
-    <div class="container">
-       <!-- Brand and toggle get grouped for better mobile display -->
-       <div class="navbar-header">
-         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-           <span class="sr-only">Toggle navigation</span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-         </button>
 
-       </div>
-       <!-- Collect the nav links, forms, and other content for toggling -->
-       <div class="collapse navbar-collapse" id="navbar-collapse-1">
+   <nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color:#ff993a">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="/">
+        <img width="45" src="https://img.freepik.com/free-vector/paper-pencil-cartoon-icon-illustration-education-object-icon-concept-isolated-flat-cartoon-style_138676-2137.jpg?w=740&t=st=1701297857~exp=1701298457~hmac=a840e59b243229cd39eece524e2c9f13becbf5b3063c9bc87ad5d44c7d0c2b50" />
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-         <ul class="nav navbar-nav navbar-left d-flex">
-           <li><a href="/">Turing</a></li>
-         </ul>
-         <ul class="nav navbar-nav navbar-right">
-           <li><a href="/">Home</a></li>
-           <li><a href="/about">About</a></li>
-           <li><a href="/create">Create Blog</a></li>
-           <li><a href="/blog">All Blog</a></li>
-           <li><a href="/writres">Blogers</a></li>
-           <li><a href="/contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
 
-         </ul>
-       </div><!-- /.navbar-collapse -->
-   </div><!-- /.navbar-container -->
-   </nav>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/blog">All Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/create">Create Blog</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/writres">Blogers</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+

@@ -2,7 +2,9 @@
 
 use App\Models\Post;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\ClientController;
 use App\Models\Blogers;
+use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,17 +31,7 @@ Route::get('/writres', function (Blogers $bloger) {
     ]);
 });
 
-// Route::get('/blog', function () {
-//     return view('allBlog', [
-//         'posts'=>  Post::all()
-//         // 'posts'=>  Post::deleted()
 
-
-//         //you can get all the post by the title
-//         // 'posts'=>  Post::all('title'),
-
-//     ]);
-// });
 
 Route::get('/blog/{post:title}', function (Post $post) {
     return view('blog', [
@@ -54,9 +46,14 @@ Route::get('/create', [BlogPostController::class, 'postblog']);
 Route::post("createblog", [BlogPostController::class, 'CreateBlog']);
 
 
+Route::post("setclient", [ClientController::class, 'InsertClient']);
+
+
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('contact', [
+        'client' => Client::all()
+    ]);
 });
 
 
@@ -64,6 +61,7 @@ Route::get('/blog', [BlogPostController::class, 'allBlog'])->name("allBlog");
 Route::get('/blog/edit/{post}', [BlogPostController::class, 'ediBlog'])->name("edit");
 Route::put('/blog/update/{post}', [BlogPostController::class, 'updateBlog'])->name("update");
 Route::delete('/blog/delete/{post}', [BlogPostController::class, 'deleteBlog'])->name("delete");
+Route::delete('/blog/deleteAll', [BlogPostController::class, 'deleteAll'])->name("deleteALL");
 
 // Route::get('/blog/{id}/edit', function (Post $post) {
 

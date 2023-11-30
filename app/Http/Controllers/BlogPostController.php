@@ -67,13 +67,15 @@ class BlogPostController extends Controller
 
         $post->delete();
 
-
-
         return redirect(route("allBlog"));
 
 
+    }
+    function deleteAll(Post $post){
 
+        $post->delete();
 
+        return "rere";
 
 
     }
