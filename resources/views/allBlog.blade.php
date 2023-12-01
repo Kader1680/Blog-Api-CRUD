@@ -1,20 +1,20 @@
 @extends("layout.master")
 
 @section("content")
-     <div class="allblog container">
+     <div class="allblog container mt-4">
         <div class="head">
             <h2>All Post</h2>
-            {{-- <div style="display: flex;">
-                <div>Recent</div>
-                <div style="margin-left: 1rem">
+            <div style="display: flex;">
 
-                    <form  method="delete" action="" >
+                <div style="background-color: #a6194b" style="margin-left: 1rem">
+
+                    <form  action="{{route('deleteAll')}}" method="POST" >
                             @csrf
                             @method("delete")
-                        <button>Delete all</button>
+                        <button style="background-color: #a6194b" type="submit">Delete All</button>
                     </form>
                 </div>
-            </div> --}}
+            </div>
         </div>
         @foreach ( $posts as $post )
 
@@ -32,7 +32,7 @@
                                 @csrf
                                 @method("delete")
 
-                                <button  style="  background-color: #a6194b;"  type ="submit" >Delete</button>
+                                <button  style="background-color: #a6194b;"  type ="submit" >Delete</button>
                             </form>
 
                         </div>

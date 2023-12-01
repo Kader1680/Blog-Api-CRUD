@@ -61,7 +61,10 @@ Route::get('/blog', [BlogPostController::class, 'allBlog'])->name("allBlog");
 Route::get('/blog/edit/{post}', [BlogPostController::class, 'ediBlog'])->name("edit");
 Route::put('/blog/update/{post}', [BlogPostController::class, 'updateBlog'])->name("update");
 Route::delete('/blog/delete/{post}', [BlogPostController::class, 'deleteBlog'])->name("delete");
-Route::delete('/blog/deleteAll', [BlogPostController::class, 'deleteAll'])->name("deleteALL");
+Route::delete('/blog', [BlogPostController::class, 'deleteAll'])->name("deleteAll");
+
+
+// Route::delete('/blog/delete', [BlogPostController::class, 'deleteBlog'])->name("delete");
 
 // Route::get('/blog/{id}/edit', function (Post $post) {
 

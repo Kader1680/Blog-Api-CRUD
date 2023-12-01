@@ -2,7 +2,7 @@
 
 
 @section("content")
-     <div class="container">
+     <div class="container about">
         <h1 class="text-center mt-5">
             Welcome To Bloging
         </h1>
@@ -11,13 +11,15 @@
 
         </h3><br><br>
 
-        <p class="text-center">Latest blog that was published</p>
 
         <div class=" text-center">
-            <h3>
+            <h6 style="width: 80%; margin:auto">
                 More bloggers and independent creators choose WordPress than any other blogging tool. Tap into intuitive, flexible tools that put writers, bloggers, and creators first.
 
-            </h3>
+            </h6>
+            <button class=" p-3 rounded-3 mt-5">
+                <a class=" text-decoration-none" href="/create"><i class="fa-solid fa-arrow-right"></i> First Blog Now</a>
+            </button>
         </div>
 
      </div>

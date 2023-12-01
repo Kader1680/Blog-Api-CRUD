@@ -33,7 +33,7 @@ class BlogPostController extends Controller
     ]);
 
     if ($isInserSucess) {
-        echo "<a href='/blog'>go back to blog</a>";
+        return view("sucessBlog");
     } else {
         echo "false sueces";
     }
@@ -63,7 +63,8 @@ class BlogPostController extends Controller
 
     }
 
-    function deleteBlog(Post $post){
+    function deleteBlog($id){
+        $post = Post::find($id);
 
         $post->delete();
 
@@ -71,11 +72,12 @@ class BlogPostController extends Controller
 
 
     }
-    function deleteAll(Post $post){
+    function deleteAll(){
 
-        $post->delete();
+        Post::truncate();
 
-        return "rere";
+        return redirect(route("allBlog"));
+
 
 
     }

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 html body{
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(249, 250, 251);
 
 }
 /* .navbar-brand
@@ -22,16 +22,39 @@ nav{
     background-color: #a6194b;
 } */
 .allblog{
-    background-color: rgb(240, 240, 240);
+    /* background-color: rgb(240, 240, 240); */
     border-radius: 5px;
 
 }
 .allblog .blogs{
-    background-color: rgb(230, 230, 230);
-    padding: 05px 10px;
+    background-color: white;
+    padding: 10px 10px 10px 40px;
     margin: 10px 0px;
     border-radius: 5px;
+    border: 2px solid #E5E5E5;
 
+}
+.about{
+    background-color: white;
+    padding: 10px 10px 10px 40px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 2px solid #E5E5E5;
+}
+.about p{
+    line-height: 30px;
+}
+.btnPost{
+    border: 2px solid #5cd898;
+    color: #5cd898;
+    background-color: white;
+    transition: .5s;
+    font-weight: bold;
+}
+.btnPost:hover{
+    border: 0;
+    color: white;
+    background-color: #5cd898;
 }
 .head{
     display: flex;
@@ -225,4 +248,8 @@ textarea.form-control{
     border-radius: 5px;
     padding: 10px;
 
+}
+
+textarea, input{
+    border-radius: 7px;
 }
