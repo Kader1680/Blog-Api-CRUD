@@ -46,7 +46,7 @@ Route::get('/create', [BlogPostController::class, 'postblog']);
 Route::post("createblog", [BlogPostController::class, 'CreateBlog']);
 
 
-Route::post("setclient", [ClientController::class, 'InsertClient']);
+Route::post("/setclient", [ClientController::class, 'InsertClient']);
 
 
 

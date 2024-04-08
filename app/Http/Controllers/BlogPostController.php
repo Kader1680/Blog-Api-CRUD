@@ -23,13 +23,9 @@ class BlogPostController extends Controller
     function CreateBlog(Request $request){
         $title = $request->input("title");
         $body = $request->input("body");
-
-
         $isInserSucess = Post::insert([
             'title'=>$title,
             'body'=>$body,
-
-
     ]);
 
     if ($isInserSucess) {
@@ -47,39 +43,23 @@ class BlogPostController extends Controller
     }
 
     function updateBlog(Request $request, $id){
-
-
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->update();
 
         return redirect(route("allBlog"));
-
-
-
-
-
-
     }
 
     function deleteBlog($id){
         $post = Post::find($id);
-
         $post->delete();
-
         return redirect(route("allBlog"));
-
 
     }
     function deleteAll(){
-
         Post::truncate();
-
         return redirect(route("allBlog"));
-
-
-
     }
 }
 
