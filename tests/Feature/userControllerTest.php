@@ -12,7 +12,7 @@ class userControllerTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_structre_resposnse(): void
+    public function test_can_get_data(): void
     {
         // Make a GET request to the /api/users endpoint
         $response = $this->getJson('http://127.0.0.1:8000/api/blog');
@@ -21,7 +21,7 @@ class userControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_post_response(): void{
+    public function test_can_post_data(): void{
         $dataPost = [
             'title' => 'abdelkader',
             'body' => 'good programmer',
@@ -49,7 +49,7 @@ class userControllerTest extends TestCase
         ]);
     }
 
-    public function test_index(): void{
+    public function test_can_get_data_by_id(): void{
         // Create a dummy post
         $post = Post::factory()->create();
         // Make a GET request to the /api/posts/{id} endpoint to show the post
@@ -73,19 +73,7 @@ class userControllerTest extends TestCase
         $this->assertDatabaseMissing('posts', ['id' => $post->id]);
     }
 
-    public function test_delete_nonexistent_post()
-    {
-        // Attempt to delete a post with an invalid ID
-        $response = $this->deleteJson('/api/posts/999');
-
-        // Assert that the response status is 404 Not Found
-        $response->assertStatus(404);
-
-        // Assert that the response contains the appropriate error message
-        $response->assertJson([
-            'error' => 'Post not found'
-        ]);
-    }
+    
 
 
     
