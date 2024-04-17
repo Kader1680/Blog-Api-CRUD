@@ -1,10 +1,10 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "L5 OpenApi",
+        "title": "L5 OpenApi Docs with swagger",
         "description": "L5 Swagger OpenApi description",
         "contact": {
-            "email": "darius@matulionis.lt"
+            "email": "ouldhenniaabdelkader@gmail.com"
         },
         "license": {
             "name": "Apache 2.0",
@@ -16,7 +16,7 @@
         "/api/blog": {
             "get": {
                 "tags": [
-                    "Posts"
+                    "Blogs"
                 ],
                 "summary": "Get all posts",
                 "description": "Returns a list of all posts.",
@@ -72,6 +72,30 @@
                 "summary": "Post Blog",
                 "description": "Returns blog Information with 201 status response code.",
                 "operationId": "Post Blog",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "body"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Title of your BLog"
+                                    },
+                                    "body": {
+                                        "type": "string",
+                                        "example": "Body of your Blog"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "201": {
                         "description": "Successful operation created",
@@ -92,6 +116,179 @@
                                         },
                                         "type": "object"
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/blog/{id}": {
+            "get": {
+                "tags": [
+                    "Blogs"
+                ],
+                "summary": "Get a specific your Blog by ID",
+                "description": "Get blog by Id",
+                "operationId": "getYourModelById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of your Blog",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Get Blog By Id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "true"
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "thread"
+                                                },
+                                                "body": {
+                                                    "type": "string",
+                                                    "example": "thread"
+                                                },
+                                                "published_at": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "api/edit/{id}": {
+            "put": {
+                "tags": [
+                    "Blgo"
+                ],
+                "summary": "Update a your Blog",
+                "description": "Update a your Blog by its ID",
+                "operationId": "update the blog by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of your Blog",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "body"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 7
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Abdelkader"
+                                    },
+                                    "body": {
+                                        "type": "string",
+                                        "example": "Ouldn Hennia"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "true"
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "thread"
+                                                },
+                                                "body": {
+                                                    "type": "string",
+                                                    "example": "thread"
+                                                },
+                                                "published_at": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }

@@ -8,10 +8,10 @@ use Illuminate\Routing\Controller as BaseController;
 /**
  * @OA\Info(
  *      version="1.0.0",
- *      title="L5 OpenApi",
+ *      title="L5 OpenApi Docs with swagger",
  *      description="L5 Swagger OpenApi description",
  *      @OA\Contact(
- *          email="darius@matulionis.lt"
+ *          email="ouldhenniaabdelkader@gmail.com"
  *      ),
  *     @OA\License(
  *         name="Apache 2.0",

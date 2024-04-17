@@ -13,7 +13,7 @@ use function Laravel\Prompts\error;
  * @OA\Get(
  *      path="/api/blog",
  *      operationId="getPosts",
- *      tags={"Posts"},
+ *      tags={"Blogs"},
  *      summary="Get all posts",
  *      description="Returns a list of all posts.",
  *      @OA\Response(
@@ -34,12 +34,22 @@ use function Laravel\Prompts\error;
  *      )
  *     
  * )
- * @OA\Post(
+ * 
+
+ *  @OA\Post(
  *      path="/api/create",
  *      operationId="Post Blog",
  *      tags={"Posts"},
  *      summary="Post Blog",
  *      description="Returns blog Information with 201 status response code.",
+ *      @OA\RequestBody(
+ *          required=true,
+ *          @OA\JsonContent(
+ *              required={"title", "body"},
+ *              @OA\Property(property="title", type="string", example="Title of your BLog"),
+ *              @OA\Property(property="body", type="string", example="Body of your Blog")
+ *          ),
+ *      ),
  *      @OA\Response(
  *          response=201,
  *          description="Successful operation created",
@@ -55,9 +65,88 @@ use function Laravel\Prompts\error;
  *      )
  *     
  * )
+ * 
+ * @OA\Get(
+    *      path="/api/blog/{id}",
+    *      operationId="getYourModelById",
+    *      tags={"Blogs"},
+    *      summary="Get a specific your Blog by ID",
+    *      description="Get blog by Id",
+    *      @OA\Parameter(
+    *          name="id",
+    *          description="ID of your Blog",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer",
+    *              format="int64"
+    *          )
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful Get Blog By Id",
+    *          @OA\JsonContent(
+    *              type="object",
+    *              @OA\Property(property="status", type="string", example="true"),
+    *              @OA\Property(property="error", type="string", nullable=true),
+    *              @OA\Property(property="data", type="object",
+    *                  @OA\Property(property="id", type="integer", example=5),
+    *                  @OA\Property(property="title", type="string", example="thread"),
+    *                  @OA\Property(property="body", type="string", example="thread"),
+    *                  @OA\Property(property="published_at", type="string", nullable=true),
+    *                  @OA\Property(property="created_at", type="string", nullable=true),
+    *                  @OA\Property(property="updated_at", type="string", format="date-time"),
+    *              ),
+    *          ),
+    *      ),
+    * )
+ 
+
+    * @OA\Put(
+    *      path="api/edit/{id}",
+    *      operationId="update the blog by id",
+    *      tags={"Blgo"},
+    *      summary="Update a your Blog",
+    *      description="Update a your Blog by its ID",
+    *      @OA\Parameter(
+    *          name="id",
+    *          description="ID of your Blog",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *      ),
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(
+    *              required={"title", "body"},
+    *              @OA\Property(property="id", type="integer", example=7),
+    *              @OA\Property(property="title", type="string", example="Abdelkader"),
+    *              @OA\Property(property="body", type="string", example="Ouldn Hennia"),
+    *          ),
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful operation",
+    *        @OA\JsonContent(
+    *              type="object",
+    *              @OA\Property(property="status", type="string", example="true"),
+    *              @OA\Property(property="error", type="string", nullable=true),
+    *              @OA\Property(property="data", type="object",
+    *                  @OA\Property(property="id", type="integer", example=5),
+    *                  @OA\Property(property="title", type="string", example="thread"),
+    *                  @OA\Property(property="body", type="string", example="thread"),
+    *                  @OA\Property(property="published_at", type="string", nullable=true),
+    *                  @OA\Property(property="created_at", type="string", nullable=true),
+    *                  @OA\Property(property="updated_at", type="string", format="date-time"),
+    *              ),
+    *          ),
+    *         
+    *      )
+    * )
+
  */
-
-
 class apiController extends Controller
 {
     public function index($id){
@@ -89,7 +178,7 @@ class apiController extends Controller
 
             return Response::json(['status' => 200, 'error' => null, 'data' => $post], 200);
 
-
+        // return $posts;
     }
     public function edit(Request $request, $paramter){
         $post = Post::find($paramter);
@@ -111,12 +200,55 @@ class apiController extends Controller
 
         return Response::json(['status' => 201, 'error' => null, 'data' => $request->all()], 201);
     }
-
-
     public function delete($id){
         $post = Post::findOrFail($id);
         $post->delete();
         return Response::json(['status' => 204, 'error' => null, 'data' => $post], 204);
         ;
     }
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+// * @OA\Put(
+//     *      path="api/edit/{id}",
+//     *      operationId="update the blog by id",
+//     *      tags={"Blgo"},
+//     *      summary="Update a your Blog",
+//     *      description="Update a your Blog by its ID",
+//     *      @OA\Parameter(
+//     *          name="id",
+//     *          description="ID of your Blog",
+//     *          required=strue,
+//     *          in="path",
+//     *          @OA\Schema(
+//     *              type="integer",
+//     *              format="int64"
+//     *          )
+//     *      ),
+//     *      @OA\RequestBody(
+//     *          required=true,
+//     *          @OA\JsonContent(
+//     *              required={"title", "body"},
+//     *              @OA\Property(property="title", type="string", example="Abdelkader"),
+//     *              @OA\Property(property="body", type="string", example="Ouldn Hennia"),
+//     *          ),
+//     *      ),
+//     *      @OA\Response(
+//     *          response=200,
+//     *          description="Successful operation"
+//     *         
+//     *      )
+//     * )
+    
