@@ -9,6 +9,55 @@ use Illuminate\Support\Facades\Response;
 
 use function Laravel\Prompts\error;
 
+/**
+ * @OA\Get(
+ *      path="/api/blog",
+ *      operationId="getPosts",
+ *      tags={"Posts"},
+ *      summary="Get all posts",
+ *      description="Returns a list of all posts.",
+ *      @OA\Response(
+ *          response=200,
+ *          description="Successful operation",
+ *              @OA\JsonContent(
+ *              type="array",
+ *              @OA\Items(
+ *                  @OA\Property(property="id", type="integer", example=5),
+ *                  @OA\Property(property="title", type="string", example="thread"),
+ *                  @OA\Property(property="body", type="string", example="thread"),
+ *                  @OA\Property(property="published_at", type="string", example=null),
+ *                  @OA\Property(property="created_at", type="string", example=null),
+ *                  @OA\Property(property="updated_at", type="string", example="2024-04-08T20:39:27.000000Z")
+ *              )
+ *          )
+ *         
+ *      )
+ *     
+ * )
+ * @OA\Post(
+ *      path="/api/create",
+ *      operationId="Post Blog",
+ *      tags={"Posts"},
+ *      summary="Post Blog",
+ *      description="Returns blog Information with 201 status response code.",
+ *      @OA\Response(
+ *          response=201,
+ *          description="Successful operation created",
+ *              @OA\JsonContent(
+ *              type="array",
+ *              @OA\Items(
+ *                  @OA\Property(property="title", type="string", example="thread"),
+ *                  @OA\Property(property="body", type="string", example="thread"),
+ *              
+ *              )
+ *          )
+ *         
+ *      )
+ *     
+ * )
+ */
+
+
 class apiController extends Controller
 {
     public function index($id){
@@ -31,16 +80,16 @@ class apiController extends Controller
             $status = false;
             $error = 'error';
             $data = 'not found';
-            return Response::json(['status' => $status, 'error' => $error, 'data' => $data]);
+            return Response::json(['status' => $status, 'error' => $error, 'data' => $data], 200);
            }else{
             $status = true;
             $error = null;
             $data = $post;
            }
 
-            return Response::json(['error' => null, 'data' => $post], 200);
+            return Response::json(['status' => 200, 'error' => null, 'data' => $post], 200);
 
-        // return $posts;
+
     }
     public function edit(Request $request, $paramter){
         $post = Post::find($paramter);
@@ -62,44 +111,12 @@ class apiController extends Controller
 
         return Response::json(['status' => 201, 'error' => null, 'data' => $request->all()], 201);
     }
+
+
     public function delete($id){
         $post = Post::findOrFail($id);
         $post->delete();
         return Response::json(['status' => 204, 'error' => null, 'data' => $post], 204);
         ;
     }
-
-
-
-    // public function showClient(){
-    //     $clients = Clients::all();
-    //     if (!$clients) {
-    //         $status = false;
-    //         $error = 'error';
-    //         $data = 'not found';
-    //         return Response::json(['status' => $status, 'error' => $error, 'data' => $data]);
-
-    //        }else{
-    //         $status = true;
-    //         $error = null;
-    //         $data = $clients;
-    //        }
-    //         return Response::json(['status' => 200, 'error' => [], 'data' => $clients]);
-    // }
-
-
-    // public function addClient(Request $request){
-
-    // $client = new Client();
-    // $client->name = $request->input('name');
-    // $client->email = $request->input('email');
-    // $client->age = $request->input('age');
-    // $client->message = $request->input('message');
-    // $client->save();
-
-    // }
-
-
-
-
 }

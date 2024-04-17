@@ -1,0 +1,103 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "L5 OpenApi",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "darius@matulionis.lt"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/blog": {
+            "get": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Get all posts",
+                "description": "Returns a list of all posts.",
+                "operationId": "getPosts",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "title": {
+                                                "type": "string",
+                                                "example": "thread"
+                                            },
+                                            "body": {
+                                                "type": "string",
+                                                "example": "thread"
+                                            },
+                                            "published_at": {
+                                                "type": "string",
+                                                "example": null
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "example": null
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "example": "2024-04-08T20:39:27.000000Z"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/create": {
+            "post": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "Post Blog",
+                "description": "Returns blog Information with 201 status response code.",
+                "operationId": "Post Blog",
+                "responses": {
+                    "201": {
+                        "description": "Successful operation created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "title": {
+                                                "type": "string",
+                                                "example": "thread"
+                                            },
+                                            "body": {
+                                                "type": "string",
+                                                "example": "thread"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
