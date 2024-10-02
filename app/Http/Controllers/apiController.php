@@ -223,10 +223,10 @@ class apiController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
-        // if ($post) {
-        //     return Response::json(['status' => 204, 'error' => null, 'data' => 'data deleting succesfuly'], 204);
+        if ($post) {
+            return Response::json(['status' => 204, 'error' => null, 'data' => 'data deleting succesfuly'], 204);
 
-        // }
+        }
         return "sorry your id is invalid or your data is already deleting";
     }
 }
