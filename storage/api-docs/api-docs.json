@@ -67,7 +67,7 @@
         "/api/create": {
             "post": {
                 "tags": [
-                    "Posts"
+                    "Blogs"
                 ],
                 "summary": "Post Blog",
                 "description": "Returns blog Information with 201 status response code.",
@@ -196,10 +196,36 @@
                 }
             }
         },
+        "/api/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Blogs"
+                ],
+                "summary": "Delete Blog by ID",
+                "description": "Get blog by Id",
+                "operationId": "Get Model By Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of your Blog",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Delete the blog with Id Sussecfly"
+                    }
+                }
+            }
+        },
         "api/edit/{id}": {
             "put": {
                 "tags": [
-                    "Blgo"
+                    "Blogs"
                 ],
                 "summary": "Update a your Blog",
                 "description": "Update a your Blog by its ID",
